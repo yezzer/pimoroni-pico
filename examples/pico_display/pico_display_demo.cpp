@@ -29,7 +29,7 @@ int main() {
   };
 
   std::vector<pt> shapes;
-  for(int i = 0; i < 100; i++) {
+  for(int i = 0; i < 20; i++) {
     pt shape;
     shape.x = rand() % 240;
     shape.y = rand() % 135;
@@ -94,7 +94,7 @@ int main() {
         rads += (float(j) / 100.0f);
         float cx = sin(rads) * 300.0f;
         float cy = cos(rads) * 300.0f;
-        graphics.line(Point(120, 67), Point(cx + 120, cy + 67));
+        //graphics.line(Point(120, 67), Point(cx + 120, cy + 67));
       }
     }
 
