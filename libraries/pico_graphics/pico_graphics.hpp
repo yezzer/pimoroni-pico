@@ -15,6 +15,8 @@
 
 #include "common/pimoroni_common.hpp"
 
+#include "pretty-poly-types.hpp"
+
 // A tiny graphics library for our Pico products
 // supports:
 //   - 16-bit (565) RGB
@@ -214,6 +216,9 @@ namespace pimoroni {
       set_font(&font6);
     };
 
+    size_t pretty_poly_buffer_size();
+    void pretty_poly_init(void *mem);
+
     virtual void set_pen(uint c) = 0;
     virtual void set_pen(uint8_t r, uint8_t g, uint8_t b) = 0;
     virtual void set_pixel(const Point &p) = 0;
@@ -250,6 +255,7 @@ namespace pimoroni {
     void text(const std::string &t, const Point &p, int32_t wrap, float s = 2.0f, float a = 0.0f, uint8_t letter_spacing = 1);
     int32_t measure_text(const std::string &t, float s = 2.0f, uint8_t letter_spacing = 1);
     void polygon(const std::vector<Point> &points);
+    void polygon(std::vector<pretty_poly::contour_t<int>> contours);
     void triangle(Point p1, Point p2, Point p3);
     void line(Point p1, Point p2);
   };
