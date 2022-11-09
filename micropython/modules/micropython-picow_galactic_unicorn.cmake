@@ -49,7 +49,7 @@ include(galactic_unicorn/micropython)
 
 # include(micropython-common)
 ##yez
-enable_ulab()
+
 
 function(enable_ulab)
     include(ulab/code/micropython)
@@ -110,7 +110,7 @@ function(enable_ulab)
         NDARRAY_HAS_BINARY_OP_TRUE_DIVIDE=1
     )
 endfunction()
-
+enable_ulab()
 #####
 
 include(modules_py/modules_py)
