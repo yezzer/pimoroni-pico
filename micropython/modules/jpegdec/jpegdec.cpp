@@ -126,7 +126,7 @@ MICROPY_EVENT_POLL_HOOK
         }
     } else if(pDraw->iBpp == 16) {
         //mp_raise_msg(&mp_type_RuntimeError, "yez - 16");
-        printf("yez: height= %i width= %i",iHeight,iWidth)
+        printf("yez: height= %i width= %i",pDraw->iHeight,pDraw->iWidth)
         for(int y = 0; y < pDraw->iHeight; y++) {
             for(int x = 0; x < pDraw->iWidth; x++) {
                 int i = y * pDraw->iWidth + x;
