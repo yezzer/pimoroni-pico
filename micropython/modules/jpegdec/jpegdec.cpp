@@ -244,7 +244,7 @@ mp_obj_t _JPEG_decode(size_t n_args, const mp_obj_t *pos_args, mp_map_t *kw_args
         result = self->jpeg->openRAM((uint8_t *)self->buf.buf, self->buf.len, JPEGDraw);
     }
     
-    if(result != 1) mp_raise_msg(&mp_type_RuntimeError, "JPEG: could not read file/buffer.");
+    if(result != 1) mp_raise_msg(&mp_type_RuntimeError, "JPEG: could not read file/buffer. - yez");
 
     // Force a specific data output type to best match our PicoGraphics buffer
     switch(self->graphics->graphics->pen_type) {
