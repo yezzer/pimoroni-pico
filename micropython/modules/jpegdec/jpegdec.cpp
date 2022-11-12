@@ -124,6 +124,8 @@ MICROPY_EVENT_POLL_HOOK
                 current_graphics->pixel({pDraw->x + x, pDraw->y + y});
             }
         }
+    } else if(pDraw->iBpp == 16) {
+        mp_raise_msg(&mp_type_RuntimeError, "yez - 16");
     } else {
         for(int y = 0; y < pDraw->iHeight; y++) {
             for(int x = 0; x < pDraw->iWidth; x++) {
