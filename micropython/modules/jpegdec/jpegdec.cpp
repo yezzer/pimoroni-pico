@@ -129,7 +129,8 @@ MICROPY_EVENT_POLL_HOOK
         for(int y = 0; y < pDraw->iHeight; y++) {
             for(int x = 0; x < pDraw->iWidth; x++) {
                 int i = y * pDraw->iWidth + x;
-                current_graphics->set_pen(pDraw->pPixels[i]);
+                //current_graphics->set_pen(pDraw->pPixels[i]);
+                current_graphics->set_pen(RGB(pDraw->pPixels[i]).to_rgb888());
                 current_graphics->pixel({pDraw->x + x, pDraw->y + y});
                 // if (current_graphics->pen_type == PicoGraphics::PEN_RGB888) {
                 //     if (current_flags & FLAG_NO_DITHER) {
