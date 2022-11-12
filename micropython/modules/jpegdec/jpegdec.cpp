@@ -133,7 +133,7 @@ MICROPY_EVENT_POLL_HOOK
                 current_graphics->pixel({pDraw->x + x, pDraw->y + y});
                 
             }
-            mp_raise_msg(&mp_type_RuntimeError, "yez - %i\n",y);
+            mp_raise_msg(&mp_type_RuntimeError, "yez y= %d \n", y);
         }
     } else {
         for(int y = 0; y < pDraw->iHeight; y++) {
