@@ -129,21 +129,23 @@ MICROPY_EVENT_POLL_HOOK
         for(int y = 0; y < pDraw->iHeight; y++) {
             for(int x = 0; x < pDraw->iWidth; x++) {
                 int i = y * pDraw->iWidth + x;
-                if (current_graphics->pen_type == PicoGraphics::PEN_RGB888) {
-                    if (current_flags & FLAG_NO_DITHER) {
-                        // Posterized output to RGB332 - yez hack i have no idea what i'm doing
-                        current_graphics->set_pen(RGB((RGB888)pDraw->pPixels[i]).to_rgb888());
-                        current_graphics->pixel({pDraw->x + x, pDraw->y + y});
-                    } else {
-                        // Dithered output to RGB332 - yez hack i have no idea what i'm doing
-                        current_graphics->set_pixel_dither({pDraw->x + x, pDraw->y + y}, (RGB888)(pDraw->pPixels[i]));
-                    }
-                } else if (current_graphics->pen_type == PicoGraphics::PEN_P8 || current_graphics->pen_type == PicoGraphics::PEN_P4 || current_graphics->pen_type == PicoGraphics::PEN_3BIT) {
-                    current_graphics->set_pixel_dither({pDraw->x + x, pDraw->y + y}, RGB((RGB888)pDraw->pPixels[i]));
-                } else {
-                    current_graphics->set_pen(pDraw->pPixels[i]);
-                    current_graphics->pixel({pDraw->x + x, pDraw->y + y});
-                } 
+                current_graphics->set_pen(pDraw->pPixels[i]);
+                current_graphics->pixel({pDraw->x + x, pDraw->y + y});
+                // if (current_graphics->pen_type == PicoGraphics::PEN_RGB888) {
+                //     if (current_flags & FLAG_NO_DITHER) {
+                //         // Posterized output to RGB332 - yez hack i have no idea what i'm doing
+                //         current_graphics->set_pen(RGB((RGB888)pDraw->pPixels[i]).to_rgb888());
+                //         current_graphics->pixel({pDraw->x + x, pDraw->y + y});
+                //     } else {
+                //         // Dithered output to RGB332 - yez hack i have no idea what i'm doing
+                //         current_graphics->set_pixel_dither({pDraw->x + x, pDraw->y + y}, (RGB888)(pDraw->pPixels[i]));
+                //     }
+                // } else if (current_graphics->pen_type == PicoGraphics::PEN_P8 || current_graphics->pen_type == PicoGraphics::PEN_P4 || current_graphics->pen_type == PicoGraphics::PEN_3BIT) {
+                //     current_graphics->set_pixel_dither({pDraw->x + x, pDraw->y + y}, RGB((RGB888)pDraw->pPixels[i]));
+                // } else {
+                //     current_graphics->set_pen(pDraw->pPixels[i]);
+                //     current_graphics->pixel({pDraw->x + x, pDraw->y + y});
+                // } 
             }
         }
     } else {
