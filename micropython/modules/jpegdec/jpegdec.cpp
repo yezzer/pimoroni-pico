@@ -126,6 +126,7 @@ MICROPY_EVENT_POLL_HOOK
         }
     } else if(pDraw->iBpp == 16) {
         //mp_raise_msg(&mp_type_RuntimeError, "yez - 16");
+        mp_raise_msg_varg(&mp_type_ValueError, MP_ERROR_TEXT("yez y= %d"), pDraw->iWidth);
         for(int y = 0; y < pDraw->iHeight; y++) {
             for(int x = 0; x < pDraw->iWidth; x++) {
                 int i = y * pDraw->iWidth + x;
@@ -133,8 +134,8 @@ MICROPY_EVENT_POLL_HOOK
                 current_graphics->pixel({pDraw->x + x, pDraw->y + y});
                 
             }
-            //mp_raise_msg(&mp_type_RuntimeError, "yez y= %d \n", y);
-            mp_raise_msg_varg(&mp_type_ValueError, MP_ERROR_TEXT("yez y= %d"), y);
+            
+            
         }
     } else {
         for(int y = 0; y < pDraw->iHeight; y++) {
