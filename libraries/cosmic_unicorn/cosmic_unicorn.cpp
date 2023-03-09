@@ -567,9 +567,9 @@ namespace pimoroni {
       }
       else if(graphics->pen_type == PicoGraphics::PEN_RGB332) {
         uint8_t *p = (uint8_t *)graphics->frame_buffer;
-        for(size_t j = 0; j < 53 * 11; j++) {
-          int x = j % 53;
-          int y = j / 53;
+        for(size_t j = 0; j < 32 * 32; j++) {
+          int x = j % 32;
+          int y = j / 32;
 
           uint8_t col = *p;
           uint8_t r = (col & 0b11100000);
